@@ -1,9 +1,8 @@
 const Page = () => {
     return (
-        <div>
-            ...
+        <div className="">
+            Página Inicial
         </div>
-
     )
 }
 
