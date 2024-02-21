@@ -4,6 +4,7 @@ import { ReactNode, useEffect, useState } from "react";
 import { Navbar } from "@/components/dashboard/Navbar";
 import { useUser } from "@/contexts/UserContext";
 import { useRouter } from "next/navigation";
+import { Header } from "@/components/dashboard/layout/Header";
 
 
 const Page = ( { children } : { children: ReactNode} ) => {
@@ -27,17 +28,14 @@ const Page = ( { children } : { children: ReactNode} ) => {
             />
    
             <div className={`${isOpen ? 'md:left-[300px]':'md:left-0'} transition-all duration-300 ease-in-out 
-                relative md:left-[300px] md:w-[calc(100vw-300px)] min-h-screen `}>
+                relative md:left-[300px] md:w-[calc(100vw-320px)] min-h-screen`}>
 
-                <header className="flex justify-between items-center mb-5 fixed top-0  bg-box w-screen p-3">
-                    <button className="md:hidden" onClick={()=>setIsOpened(!isOpen)} >
-                        <svg className="w-7 h-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" >
-                            <path fillRule="evenodd" d="M3 6.75A.75.75 0 0 1 3.75 6h16.5a.75.75 0 0 1 0 1.5H3.75A.75.75 0 0 1 3 6.75ZM3 12a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75A.75.75 0 0 1 3 12Zm0 5.25a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75a.75.75 0 0 1-.75-.75Z" clipRule="evenodd" />
-                        </svg>
-                    </button>                    
-                </header>
+               <Header
+                    isOpen={isOpen}
+                    setIsOpened={setIsOpened}
+               />
 
-                <div className="min-h-screen p-3 mt-[50px]">
+                <div className="min-h-screen p-3 mt-[60px]">
                     { children }
                 </div>
                                                                

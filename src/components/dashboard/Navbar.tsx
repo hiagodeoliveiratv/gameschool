@@ -8,10 +8,11 @@ import Link from 'next/link';
 import { IoHomeOutline } from "react-icons/io5";
 import { FiUsers } from "react-icons/fi";
 import { VscAccount } from "react-icons/vsc";
-import { IoMdLogOut } from "react-icons/io";
+import { MdOutlineLogout } from "react-icons/md";
 import { FaXmark } from "react-icons/fa6";
 import { useUser } from "@/contexts/UserContext";
 import { usePathname } from "next/navigation";
+import { Button } from "./layout/Button";
 
 
 type Props = {
@@ -21,9 +22,9 @@ type Props = {
 
 const navItems = [
 
-    {icon: <IoHomeOutline className="mr-2" />, label: 'Início', path: '/dashboard'},
-    {icon: <FiUsers className="mr-2" />, label: 'Usuários', path: '/dashboard/usuarios'},
-    {icon: <VscAccount className="mr-2" />, label: 'Minha Conta', path: '/dashboard/minha-conta'},
+    {icon: <IoHomeOutline />, label: 'Início', path: '/dashboard'},
+    {icon: <FiUsers />, label: 'Usuários', path: '/dashboard/usuarios'},
+    {icon: <VscAccount />, label: 'Minha Conta', path: '/dashboard/minha-conta'},
   
 ];
 
@@ -69,28 +70,30 @@ export const Navbar = ( { isOpen , setIsOpened } : Props) => {
         
 
                 <ul className="mt-10 flex-1">
+
                     {navItems.map((item,index)=> (
 
                         <li key={index}>
-                            <Link href={item.path} onClick={()=>setIsOpened(false)}
-                                className={`flex items-center p-3 rounded-md border-b-orange-500/20 text-sm  mb-3 text-white/80 font-light
-                                    ${pathname === item.path && 'bg-orange-500/60'}
-                                    hover:bg-orange-500/60
-                                `}>
-                                {item.icon}
-                                <p>{item.label}</p>
-                            </Link>
+
+                            <Button
+                                label={item.label}
+                                Icon={item.icon}
+                                active={pathname === item.path}
+                                onClick={()=>setIsOpened(false)}
+                                href={item.path}
+
+                            />                           
                         </li>    
 
                     ))}
-
-                
+            
                 </ul>
 
-                <button onClick={handleLogout} className="flex items-center mb-7 mt-10 p-3 text-white/80 font-light text-sm rounded hover:bg-orange-500/60">
-                    <IoMdLogOut className="mr-2 text-red-400"  />
-                    <p >Sair</p>
-                </button>
+                <Button
+                    onClick={userCtx?.logout}
+                    label="Sair"
+                    Icon={<MdOutlineLogout />}
+                />
                 
             
             </div>
