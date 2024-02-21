@@ -39,57 +39,67 @@ export const Navbar = ( { isOpen , setIsOpened } : Props) => {
     }
 
     return (
-        <div className={`
-            fixed p-5 flex flex-col  z-10 w-[300px] top-0 bottom-0 h-screen bg-box transition-all ease-in-out duration-300
-            ${isOpen ? 'left-0' : '-left-[300px] md:left-0'}
-        
-        `} >
+
+        <>
+            <div className={`
+                fixed p-5 flex flex-col  z-20 w-[300px] top-0 bottom-0 h-screen bg-box transition-all ease-in-out duration-300
+                ${isOpen ? 'left-0' : '-left-[300px] md:left-0'}
+                shadow-2xl
             
-           
-            <Image
-                className="mx-auto"
-                src={Logo}
-                width={120}
-
-                alt="Logo Viver de Investir"
-            /> 
-
-            <button 
-                onClick={()=>setIsOpened(!isOpen)}
-                className="p-5 absolute top-2 right-1 text-white/80
-                    md:hidden
-                "
-            >
-                <FaXmark />    
+            `} >
                 
-            </button>                        
-     
+            
+                <Image
+                    className="mx-auto"
+                    src={Logo}
+                    width={120}
 
-            <ul className="mt-10 flex-1">
-                {navItems.map((item,index)=> (
+                    alt="Logo Viver de Investir"
+                /> 
 
-                    <li key={index}>
-                        <Link href={item.path} onClick={()=>setIsOpened(false)}
-                            className={`flex items-center p-3 rounded-md border-b-orange-500/20 text-sm  mb-3 text-white/80 font-light
-                                ${pathname === item.path && 'bg-orange-500/60'}
-                                hover:bg-orange-500/60
-                            `}>
-                            {item.icon}
-                            <p>{item.label}</p>
-                        </Link>
-                    </li>    
+                <button 
+                    onClick={()=>setIsOpened(!isOpen)}
+                    className="p-5 absolute top-2 right-1 text-white/80
+                        md:hidden
+                    "
+                >
+                    <FaXmark />    
+                    
+                </button>                        
+        
 
-                ))}
+                <ul className="mt-10 flex-1">
+                    {navItems.map((item,index)=> (
 
-               
-            </ul>
+                        <li key={index}>
+                            <Link href={item.path} onClick={()=>setIsOpened(false)}
+                                className={`flex items-center p-3 rounded-md border-b-orange-500/20 text-sm  mb-3 text-white/80 font-light
+                                    ${pathname === item.path && 'bg-orange-500/60'}
+                                    hover:bg-orange-500/60
+                                `}>
+                                {item.icon}
+                                <p>{item.label}</p>
+                            </Link>
+                        </li>    
 
-            <button onClick={handleLogout} className="flex items-center mb-7 mt-10 p-3 text-white/80 font-light text-sm rounded hover:bg-orange-500/60">
-                <IoMdLogOut className="mr-2 text-red-400"  />
-                <p >Sair</p>
-            </button>
-              
-           
-        </div>
+                    ))}
+
+                
+                </ul>
+
+                <button onClick={handleLogout} className="flex items-center mb-7 mt-10 p-3 text-white/80 font-light text-sm rounded hover:bg-orange-500/60">
+                    <IoMdLogOut className="mr-2 text-red-400"  />
+                    <p >Sair</p>
+                </button>
+                
+            
+            </div>
+            {isOpen &&
+                <div className="fixed z-10 top-0 left-0  w-screen h-screen  bg-black/40" onClick={()=>setIsOpened(false)}>
+                    
+                </div>            
+            }
+          
+        </>
     )
 }

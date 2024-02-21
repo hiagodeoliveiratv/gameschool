@@ -7,7 +7,7 @@ import { Providers } from "./providers";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Copy Trade Comissions",
+  title: "Dashboard | Viver de Investir ",
 };
 
 export default function RootLayout({

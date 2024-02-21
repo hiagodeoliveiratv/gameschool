@@ -30,7 +30,7 @@ const Page = () => {
     
     const handleLoginButton = async () => {
 
-        if(errors.length > 0) return;
+        if(errors.length > 0 || email.trim() === '' || password.trim() === '' ) return;
         setLoading(true);
 
         const data = await api.login(email, password);

@@ -1,7 +1,7 @@
 const Page = () => {
     return (
         <div>
-            Minha Conta
+            <h2 className="text-xl">Minha Conta</h2>
         </div>
     )
 }
