@@ -7,7 +7,7 @@ import { Providers } from "./providers";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Dashboard | Viver de Investir ",
+  title: "Dashboard | Gênesis ",
 };
 
 export default function RootLayout({

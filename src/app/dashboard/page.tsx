@@ -16,7 +16,7 @@ const Page = () => {
 
                 />
                 <Box
-                    label="Total Consultores"
+                    label="Total Heads"
                     Icon={HiUsers}
                     value="55"
 
